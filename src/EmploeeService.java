@@ -1,10 +1,12 @@
+import java.util.ArrayList;
 import java.util.List;
 
 public class EmploeeService {
 
     public static int getMinSalaryId(List temp) {
         EmploeeBook emploee;// = new EmploeeBook(null, null, 0);
-        int minSalaryId = 0, minSalary = 0;
+        int minSalaryId = 0;
+        double minSalary = 0;
         for (int i = 0; i < temp.size(); i++) {
             if ((EmploeeBook) temp.get(i) != null) {
                 emploee = (EmploeeBook) temp.get(i);
@@ -25,12 +27,12 @@ public class EmploeeService {
         EmploeeBook emploee;
         boolean flag = false;
         for (int i = 0; i < temp.size(); i++) {
-            if ((EmploeeBook) temp.get(i) != null) {
+            if (temp.get(i) != null) {
                 emploee = (EmploeeBook) temp.get(i);
                 if (emploee.getId() == id) {
                     if (emploee != null) {
                         temp.set(i, null);
-                        System.out.println("Emploee with ID: " + id + " is deleted");
+                        System.out.println("Emploee with ID: " + id + ", " + emploee.getEmploee() + ", is deleted");
                         flag = true;
                         break;
                     }
@@ -47,13 +49,35 @@ public class EmploeeService {
             if (temp.get(i) == null) {
                 flag = true;
                 temp.set(i, name);
-                System.out.println("Person with name " + name + " add at cell #" + i);
+                if (flag) {
+                    System.out.println("Person with name " + name + " add to cell #" + i);
+                }
                 break;
             }
         }
         if (!flag) {
             temp.add(name);
-            System.out.println("Person with name " + name + " add at cell #" + temp.size());
+            System.out.println("No existing free cells, must create new.");
+            System.out.println("Person with name " + name + " add to cell #" + (temp.size() - 1));
         }
+    }
+    public static void isAFreeCell(List temp) {
+        boolean emptyCell = false;
+        int totalEmploee = 0;
+        List<Integer> freeCells = new ArrayList<>();
+        for (int i = 0; i < temp.size(); i++) {
+            if (temp.get(i) == null) {
+                emptyCell = true;
+                freeCells.add(i);
+            } else {
+                totalEmploee++;
+            }
+        }
+        if (emptyCell) {
+            System.out.println("Free cell(s): " + freeCells);
+        } else {
+            System.out.println("There are no free cell(s)");
+        }
+        System.out.println("Total emploees: " + totalEmploee);
     }
 }

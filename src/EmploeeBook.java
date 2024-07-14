@@ -4,7 +4,7 @@ public class EmploeeBook {
 
     private String emploee;
     private String department;
-    private int salary;
+    private double salary;
     private static int count = 0;
     private int id = 0;
 
@@ -14,7 +14,6 @@ public class EmploeeBook {
         this.salary = salary;
         this.id = count;
         this.count++;
-        //System.out.println(count);
     }
 
     public String getEmploee() {
@@ -23,15 +22,12 @@ public class EmploeeBook {
     public String getDepartment() {
         return this.department;
     }
-    public int getSalary() {
+    public double getSalary() {
         return this.salary;
     }
     public int getId() {
         return this.id;
     }
-    // private void setId(int i) {
-    //     this.id = i;
-    // }
     public void setDepartment(String departmentNumber) {
         this.department = departmentNumber;
     }
