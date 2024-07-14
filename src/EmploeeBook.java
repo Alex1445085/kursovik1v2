@@ -8,6 +8,7 @@ public class EmploeeBook {
     private static int count = 0;
     private int id = 0;
 
+
     public EmploeeBook(String emploee, String department, int salary) {
         this.emploee = emploee;
         this.department = department;

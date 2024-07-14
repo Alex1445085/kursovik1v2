@@ -69,10 +69,6 @@ public class Main {
         EmploeeService.deleteEmploee(emploees, 3);
 
         EmploeeService.isAFreeCell(emploees);
-
-        //printName(emploees);
-
-        //System.out.println(emploees.size());
     }
     public static void printName(List emploee) {
         List<EmploeeBook> emplo = new ArrayList<>();
